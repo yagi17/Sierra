@@ -9,13 +9,13 @@ const Nav = () => {
             src="/logo.PNG"
             className="w-10 h-10"
           />
-          <h2 className="font-bold text-2xl text-purple-600">Sierra</h2>
+          <h2 className="font-bold text-2xl text-red-600">Sierra</h2>
         </div>
         <div className="relative items-center md:inline-flex">
           <input
             type="text"
-            placeholder="Search"
-            className="border border-gray-200 rounded-md py-1 px-2"
+            placeholder="Search by name, brand, model"
+            className="border border-red-600 w-96 rounded-md py-1 px-2"
           />
           <svg
             className="absolute right-2 h-6 w-6 text-gray-400 hover:text-gray-500"
@@ -33,7 +33,7 @@ const Nav = () => {
           </svg>
         </div>
         <div className="flex items-center gap-2">
-          <button className="border px-2 py-1 rounded-md bg-purple-600 text-white hover:bg-purple-700">
+          <button className="border px-2 py-1 rounded-md bg-red-600 text-white hover:bg-purple-700">
             Logout
           </button>
         </div>
