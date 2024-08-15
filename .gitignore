@@ -11,6 +11,7 @@ node_modules
 dist
 .env.local
 dist-ssr
+data.json
 *.local
 
 # Editor directories and files
