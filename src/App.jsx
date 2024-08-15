@@ -6,7 +6,7 @@ import Footer from "./Pages/Footer";
 const App = () => {
   return (
     <div>
-      <Nav />
+      {/* <Nav /> */}
       <Home />
       <Footer />
     </div>

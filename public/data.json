@@ -1,35 +1,30 @@
 [
   {
+    "name": "Tesla Model S",
     "model": "Model S",
-    "make": "Tesla",
+    "brand": "Tesla",
     "color": "Red",
     "image": "https://images.ctfassets.net/c9t6u0qhbv9e/3IKiuqT6xrnus4RWB2jSal/753a22d1ddb86c065b1f4be6d67a3b75/2022_Tesla_Model_S.jpeg",
     "year": 2023,
     "price": 79999,
-    "features": [
-      "Autopilot",
-      "Leather Seats",
-      "Panoramic Sunroof"
-    ],
-    "fuel": "EV"
+    "features": ["Autopilot", "Leather Seats", "Panoramic Sunroof"],
+    "category": "EV"
   },
   {
+    "name": "Ford Mustang",
     "model": "Mustang",
-    "make": "Ford",
+    "brand": "Ford",
     "color": "Blue",
     "image": "https://i.pinimg.com/originals/91/9a/d5/919ad5c35df3ce4c2c1cb2e684650ea0.jpg",
     "year": 2022,
     "price": 55999,
-    "features": [
-      "Bluetooth",
-      "Heated Seats",
-      "Rearview Camera"
-    ],
-    "fuel": "Fuel"
+    "features": ["Bluetooth", "Heated Seats", "Rearview Camera"],
+    "category": "Fuel"
   },
   {
+    "name": "Toyota Corolla Hybrid",
     "model": "Corolla Hybrid",
-    "make": "Toyota",
+    "brand": "Toyota",
     "color": "White",
     "image": "https://cdn.rotorint.com/Corolla/2022_09_Sep/e/image/jpg/lo/3840x2160/SFD_F34_020040FA204E25120A0_comp_000.jpg",
     "year": 2021,
@@ -39,11 +34,12 @@
       "Apple CarPlay",
       "Automatic Braking"
     ],
-    "fuel": "Hybrid"
+    "category": "Hybrid"
   },
   {
+    "name": "BMW i3",
     "model": "i3",
-    "make": "BMW",
+    "brand": "BMW",
     "color": "Black",
     "image": "https://www.autocar.co.uk/sites/autocar.co.uk/files/styles/gallery_slide/public/bmw-i3s-rt-2018-2586.jpg?itok=xXdg24bG",
     "year": 2020,
@@ -53,25 +49,23 @@
       "LED Headlights",
       "Heated Steering Wheel"
     ],
-    "fuel": "EV"
+    "category": "EV"
   },
   {
+    "name": "Honda Civic",
     "model": "Civic",
-    "make": "Honda",
+    "brand": "Honda",
     "color": "Silver",
     "image": "https://www.honda-mideast.com/en-lb/-/media/honda/civic-ehev-lebanon/civic_ehev-23ym-frt-3_4_r-1005x560.jpg",
     "year": 2023,
     "price": 27999,
-    "features": [
-      "Sunroof",
-      "Backup Camera",
-      "Lane Keep Assist"
-    ],
-    "fuel": "Fuel"
+    "features": ["Sunroof", "Backup Camera", "Lane Keep Assist"],
+    "category": "Fuel"
   },
   {
+    "name": "Nissan Altima",
     "model": "Altima",
-    "make": "Nissan",
+    "brand": "Nissan",
     "color": "Green",
     "image": "https://w0.peakpx.com/wallpaper/953/285/HD-wallpaper-2008-nissan-altima-nissan-08-custom-green.jpg",
     "year": 2022,
@@ -81,25 +75,23 @@
       "Blind Spot Warning",
       "Intelligent Cruise Control"
     ],
-    "fuel": "Fuel"
+    "category ": "Fuel"
   },
   {
+    "name": "Ford F-150 Lightning",
     "model": "F-150 Lightning",
-    "make": "Ford",
+    "brand": "Ford",
     "color": "Gray",
     "image": "https://www.freep.com/gcdn/presto/2022/08/09/PDTF/3e2e3396-b772-4d46-a3ac-27f506065d7e-2023_Lightning.jpg?crop=3982,2240,x0,y0&width=3200&height=1801&format=pjpg&auto=webp",
     "year": 2023,
     "price": 69999,
-    "features": [
-      "All-Wheel Drive",
-      "Towing Package",
-      "360-Degree Camera"
-    ],
-    "fuel": "EV"
+    "features": ["All-Wheel Drive", "Towing Package", "360-Degree Camera"],
+    "category": "EV"
   },
   {
+    "name": "Toyota Camry",
     "model": "Camry",
-    "make": "Toyota",
+    "brand": "Toyota",
     "color": "Black",
     "image": "https://images.topgear.com.ph/topgear/images/2020/08/07/camnry-black-edition-1-1596789185.jpg",
     "year": 2021,
@@ -109,53 +101,45 @@
       "Dual-Zone Climate Control",
       "Blind Spot Monitor"
     ],
-    "fuel": "Fuel"
+    "category": "Fuel"
   },
   {
+    "name": "Honda Accord Hybrid",
     "model": "Accord Hybrid",
-    "make": "Honda",
+    "brand": "Honda",
     "color": "White",
     "image": "https://www.hondaofweatherford.com/blogs/5012/wp-content/uploads/2024/01/2024-Honda-Accord-Hybrid.png",
     "year": 2022,
     "price": 34999,
-    "features": [
-      "Remote Start",
-      "LED Fog Lights",
-      "Adaptive Headlights"
-    ],
-    "fuel": "Hybrid"
+    "features": ["Remote Start", "LED Fog Lights", "Adaptive Headlights"],
+    "category": "Hybrid"
   },
   {
+    "name": "BMW X5 xDrive45e",
     "model": "X5 xDrive45e",
-    "make": "BMW",
+    "brand": "BMW",
     "color": "Blue",
     "image": "https://www.digitaltrends.com/wp-content/uploads/2022/01/2021-bmw-x5-phev-2.jpg?p=1",
     "year": 2023,
     "price": 78999,
-    "features": [
-      "Plug-In Hybrid",
-      "All-Wheel Drive",
-      "Gesture Control"
-    ],
-    "fuel": "Hybrid"
+    "features": ["Plug-In Hybrid", "All-Wheel Drive", "Gesture Control"],
+    "category": "Hybrid"
   },
   {
+    "name": "Nissan Rogue",
     "model": "Rogue",
-    "make": "Nissan",
+    "brand": "Nissan",
     "color": "Bronze",
     "image": "https://i0.wp.com/nissancarusa.com/wp-content/uploads/2022/07/2024-Nissan-Rogue.jpg",
     "year": 2022,
     "price": 32999,
-    "features": [
-      "All-Wheel Drive",
-      "Panoramic Roof",
-      "Wireless Apple CarPlay"
-    ],
-    "fuel": "Fuel"
+    "features": ["All-Wheel Drive", "Panoramic Roof", "Wireless Apple CarPlay"],
+    "category": "Fuel"
   },
   {
+    "name": "Tesla Model X",
     "model": "Model X",
-    "make": "Tesla",
+    "brand": "Tesla",
     "color": "White",
     "image": "https://tsportline.com/cdn/shop/articles/pearl-white-tesla-model-x-mx2022-22-inch-aftermarket-forged-wheels-diamond-white-wm-1_1280x.jpg?v=1709063077",
     "year": 2023,
@@ -165,6 +149,6 @@
       "Full Self-Driving",
       "Premium Sound System"
     ],
-    "fuel": "EV"
+    "category": "EV"
   }
 ]
