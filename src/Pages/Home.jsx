@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import useAxios from "../Hooks/useAxios";
 import axios from "axios";
 import { GoDotFill } from "react-icons/go";
@@ -7,6 +7,7 @@ import Nav from "./Nav";
 
 const Home = () => {
   const axiosInstance = useAxios();
+  const searchInputRef = useRef(null); // Add a ref for the search input
 
   const [products, setProducts] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
@@ -15,7 +16,9 @@ const Home = () => {
   const [selectedCategory, setSelectedCategory] = useState("");
   const [priceRange, setPriceRange] = useState([0, 100000]);
   const [brands, setBrands] = useState([]);
+
   const [categories, setCategories] = useState([]);
+  console.log(categories);
   const [sortOrder, setSortOrder] = useState("asc");
 
   useEffect(() => {
@@ -27,7 +30,7 @@ const Home = () => {
 
         const uniqueBrands = [...new Set(data.map((product) => product.brand))];
         const uniqueCategories = [
-          ...new Set(data.map((product) => product.category)),
+          ...new Set(data.map((product) => product.category).filter(Boolean)),
         ];
 
         setBrands(uniqueBrands);
@@ -48,6 +51,10 @@ const Home = () => {
     setSelectedCategory("");
     setPriceRange([0, 100000]);
     setSortOrder("asc");
+
+    if (searchInputRef.current) {
+      searchInputRef.current.value = "";
+    }
   };
 
   useEffect(() => {
@@ -89,65 +96,75 @@ const Home = () => {
 
   return (
     <>
-      <Nav onSearch={handleSearch} />
+      <Nav onSearch={handleSearch} searchInputRef={searchInputRef} />
       <div className="flex space-x-10 mx-auto my-10 max-w-screen-xl">
-        <div className="w-52 bg-slate-500 h-fit p-3 text-sm">
-          <h2 className="text-white font-bold mb-4">Filter</h2>
+        <div className="w-52 h-fit p-3 text-sm">
+          <h2 className="font-bold mb-4">Filter</h2>
           <div className="mb-4">
-            <h3 className="text-white">Brand Name</h3>
-            <select
-              className="w-full p-2 rounded"
-              value={selectedBrand}
-              onChange={(e) => setSelectedBrand(e.target.value)}
-            >
-              <option value="">All Brands</option>
+            <h3 className="text-red-600">Brand Name</h3>
+            <div className="flex flex-col space-y-2">
               {brands.map((brand, index) => (
-                <option key={index} value={brand}>
-                  {brand}
-                </option>
+                <label key={index} className="label cursor-pointer">
+                  <span className="label-text">{brand}</span>
+                  <input
+                    type="radio"
+                    name="brand"
+                    className="size-4"
+                    value={brand}
+                    checked={selectedBrand === brand}
+                    onChange={(e) => setSelectedBrand(e.target.value)}
+                  />
+                </label>
               ))}
-            </select>
+            </div>
           </div>
+
+          {/* select category */}
+
           <div className="mb-4">
-            <h3 className="text-white">Category Name</h3>
-            <select
-              className="w-full p-2 rounded"
-              value={selectedCategory}
-              onChange={(e) => setSelectedCategory(e.target.value)}
-            >
-              <option value="">All Categories</option>
+            <h3 className="text-red-600">Category Name</h3>
+            <div className="flex flex-col space-y-2">
               {categories.map((category, index) => (
-                <option key={index} value={category}>
-                  {category}
-                </option>
+                <label key={index} className="label cursor-pointer">
+                  <span className="label-text">{category}</span>
+                  <input
+                    type="radio"
+                    name="category"
+                    className="radio size-4"
+                    value={category}
+                    checked={selectedCategory === category}
+                    onChange={(e) => setSelectedCategory(e.target.value)}
+                  />
+                </label>
               ))}
-            </select>
+            </div>
           </div>
+
+          {/* Price Range */}
           <div>
-            <h3 className="text-white">Price Range</h3>
-            <input
-              type="number"
-              className="w-full p-2 rounded mb-2"
-              placeholder="Min Price"
-              value={priceRange[0]}
-              onChange={(e) =>
-                setPriceRange([Number(e.target.value), priceRange[1]])
-              }
-            />
-            <input
-              type="number"
-              className="w-full p-2 rounded"
-              placeholder="Max Price"
-              value={priceRange[1]}
-              onChange={(e) =>
-                setPriceRange([priceRange[0], Number(e.target.value)])
-              }
-            />
+            <h3 className="text-black">
+              Price Range <span className="text-red-600">${priceRange[1]}</span>
+            </h3>
+
+            <div className="flex items-center space-x-4 mt-2">
+              <input
+                type="range"
+                min="0"
+                max="100000"
+                value={priceRange[1]}
+                onChange={(e) =>
+                  setPriceRange([priceRange[0], Number(e.target.value)])
+                }
+                className="w-full"
+              />
+            </div>
           </div>
-          <div className="mt-4">
+
+          {/* sort by price */}
+          <div className="">
             <h3 className="text-white">Sort by Price</h3>
             <select
-              className="w-full p-2 rounded"
+              className="w-full py-2 rounded outline-none focus:ring-0"
               value={sortOrder}
               onChange={(e) => setSortOrder(e.target.value)}
             >
@@ -155,6 +172,7 @@ const Home = () => {
               <option value="desc">Price: High to Low</option>
             </select>
           </div>
+
           <div className="mt-4">
             <button
               className="w-full p-2 rounded bg-red-600 text-white hover:bg-red-700"
@@ -165,10 +183,10 @@ const Home = () => {
           </div>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-4">
-          {filteredProducts.map((product, index) => (
-            <div key={index}>
-              <div className="">
+        <div className="grid md:grid-cols-3 gap-4 w-full">
+          {filteredProducts.length > 0 ? (
+            filteredProducts.map((product, index) => (
+              <div key={index}>
                 <article className="max-w-sm w-full bg-white rounded-lg shadow-lg overflow-hidden">
                   <div>
                     <img
@@ -207,8 +225,14 @@ const Home = () => {
                   </div>
                 </article>
               </div>
+            ))
+          ) : (
+            <div className="col-span-3">
+              <h2 className="text-xl font-semibold text-red-600">
+                No car found
+              </h2>
             </div>
-          ))}
+          )}
         </div>
       </div>
     </>

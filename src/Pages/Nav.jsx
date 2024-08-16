@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 const Nav = ({ onSearch }) => {
   const [searchQuery, setSearchQuery] = useState('');
 
-  // Handle search input change
   const handleSearchChange = (e) => {
     setSearchQuery(e.target.value);
     onSearch(e.target.value); // Trigger search on change
@@ -22,6 +21,7 @@ const Nav = ({ onSearch }) => {
       <div className="relative items-center md:inline-flex">
         <input
           type="text"
+          // ref={searchInputRef}
           placeholder="Search by name, brand, model"
           value={searchQuery}
           onChange={handleSearchChange}
