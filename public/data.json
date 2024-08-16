@@ -150,5 +150,198 @@
       "Premium Sound System"
     ],
     "category": "EV"
+  },
+
+  {
+    "name": "Ford Explorer",
+    "model": "Explorer",
+    "brand": "Ford",
+    "color": "Black",
+    "image": "https://www.drivingline.com/s3/drivingline.prd/media/2350809/2022-ford-explorer-st-agate-black-metallic.jpg?quality=70&mode=pad&copymetadata=true&w=800",
+    "year": 2023,
+    "price": 44999,
+    "features": [
+      "Terrain Management System",
+      "3rd Row Seating",
+      "FordPass Connect"
+    ],
+    "category": "Fuel"
+  },
+
+  {
+    "name": "Toyota Prius",
+    "model": "Prius",
+    "brand": "Toyota",
+    "color": "Gray",
+    "image": "https://www.edmunds.com/assets/m/for-sale/5f-jtdadabu0r3014863/img-1-600x400.jpg",
+    "year": 2023,
+    "price": 28999,
+    "features": ["Hybrid System", "Smart Key System", "Heads-Up Display"],
+    "category": "Hybrid"
+  },
+  {
+    "name": "Tesla Model 3",
+    "model": "Model 3",
+    "brand": "Tesla",
+    "color": "White",
+    "image": "https://tsportline.com/cdn/shop/articles/enap-photo-617816cc9cb53_1024x.webp?v=1710279066",
+    "year": 2022,
+    "price": 69999,
+    "features": ["Autopilot", "Glass Roof", "Premium Audio System"],
+    "category": "EV"
+  },
+  {
+    "name": "Ford Bronco",
+    "model": "Bronco",
+    "brand": "Ford",
+    "color": "Orange",
+    "image": "https://cdn.motor1.com/images/mgl/rP89P/s1/2021-ford-bronco.webp",
+    "year": 2023,
+    "price": 57999,
+    "features": ["Off-Road Capabilities", "Removable Roof", "Terrain Management System"],
+    "category": "Fuel"
+  },
+  {
+    "name": "Toyota RAV4 Hybrid",
+    "model": "RAV4 Hybrid",
+    "brand": "Toyota",
+    "color": "Blue",
+    "image": "https://di-uploads-pod11.dealerinspire.com/germaintoyotaofcolumbus/uploads/2022/03/Toyota-RAV4-Hybrid-Exterior.jpg",
+    "year": 2023,
+    "price": 34999,
+    "features": ["AWD", "Smart Key System", "Adaptive Cruise Control"],
+    "category": "Hybrid"
+  },
+  {
+    "name": "BMW 3 Series",
+    "model": "3 Series",
+    "brand": "BMW",
+    "color": "Gray",
+    "image": "https://mediapool.bmwgroup.com/cache/P9/202205/P90462508/P90462508-the-new-bmw-3-series-sedan-m-brooklyn-grey-metallic-rim-19-styling-791m-bicolor-05-2022-2250px.jpg",
+    "year": 2022,
+    "price": 50999,
+    "features": ["Sport Package", "Navigation", "Heated Seats"],
+    "category": "Fuel"
+  },
+  {
+    "name": "Honda Fit",
+    "model": "Fit",
+    "brand": "Honda",
+    "color": "Yellow",
+    "image": "https://static01.nyt.com/images/2014/12/16/multimedia/driven-hond-fit/driven-hond-fit-videoSixteenByNine1050.jpg",
+    "year": 2021,
+    "price": 19999,
+    "features": ["Magic Seat", "Bluetooth", "Backup Camera"],
+    "category": "Fuel"
+  },
+  {
+    "name": "Nissan Maxima",
+    "model": "Maxima",
+    "brand": "Nissan",
+    "color": "Red",
+    "image": "https://wieck-nissanao-production.s3.us-west-1.amazonaws.com/releaseInlineImages/d9e4d650ed21f3acd6fe16df7c26c6f934828d5f",
+    "year": 2022,
+    "price": 37999,
+    "features": ["Bose Audio", "Heated Steering Wheel", "Remote Start"],
+    "category": "Fuel"
+  },
+  {
+    "name": "Tesla Model Y",
+    "model": "Model Y",
+    "brand": "Tesla",
+    "color": "Black",
+    "image": "https://images.cars.com/cldstatic/wp-content/uploads/tesla-model-y-2021-01-angle--black--dynamic--exterior--front.jpg",
+    "year": 2023,
+    "price": 74999,
+    "features": ["All-Wheel Drive", "Full Self-Driving", "Panoramic Roof"],
+    "category": "EV"
+  },
+  {
+    "name": "Ford Ranger",
+    "model": "Ranger",
+    "brand": "Ford",
+    "color": "Silver",
+    "image": "https://d2s8i866417m9.cloudfront.net/photo/993720/photo/medium-bbc9f1021337904ea8757efffe1c6f0c.jpg",
+    "year": 2023,
+    "price": 42999,
+    "features": ["4WD", "Tow Package", "FordPass Connect"],
+    "category": "Fuel"
+  },
+  {
+    "name": "Toyota Highlander Hybrid",
+    "model": "Highlander Hybrid",
+    "brand": "Toyota",
+    "color": "Green",
+    "image": "https://img.sm360.ca/ir/w1200h630far/images/article/dilawri-group-of-companies/109803//2023-toyota-highlander-hybrid-in-bolton-on1675422501697.jpg",
+    "year": 2023,
+    "price": 46999,
+    "features": ["AWD", "Navigation System", "Blind Spot Monitor"],
+    "category": "Hybrid"
+  },
+  {
+    "name": "BMW 5 Series",
+    "model": "5 Series",
+    "brand": "BMW",
+    "color": "White",
+    "image": "https://www.topgear.com/sites/default/files/images/cars-road-test/2016/11/71e69cf6162258356e8a8f2bb964c76c/bmw_540i_10.jpg",
+    "year": 2023,
+    "price": 67999,
+    "features": ["M Sport Package", "Gesture Control", "Harman Kardon Sound"],
+    "category": "Fuel"
+  },
+  {
+    "name": "Honda Insight",
+    "model": "Insight",
+    "brand": "Honda",
+    "color": "Blue",
+    "image": "https://lh5.googleusercontent.com/proxy/Wo2wgBwELeWSB2L7j3j9MmvTUHC-CCCBN-TLwPUwblyhXeOXgfi-FE0kVJkLUDTVO4N12zuN6LJkHwjqG5TKFjh2gDgmpJo66G1NKQX7BXvcU4WzXxLzSdAqUkxpSb6K5NYbwcnI7Q",
+    "year": 2023,
+    "price": 30999,
+    "features": ["Hybrid System", "Lane Keep Assist", "Apple CarPlay"],
+    "category": "Hybrid"
+  },
+  {
+    "name": "Nissan Leaf",
+    "model": "Leaf",
+    "brand": "Nissan",
+    "color": "Gray",
+    "image": "https://www.green.car/wp-content/uploads/2023/04/Nissan_Leaf_2022_1.JPG.jpg",
+    "year": 2023,
+    "price": 29999,
+    "features": ["ProPilot Assist", "E-Pedal", "Apple CarPlay"],
+    "category": "EV"
+  },
+  {
+    "name": "Tesla Model S Plaid",
+    "model": "Model S Plaid",
+    "brand": "Tesla",
+    "color": "Red",
+    "image": "https://i.insider.com/6494700c1465b60019989fe9?width=1136&format=jpeg",
+    "year": 2023,
+    "price": 139999,
+    "features": ["Tri-Motor AWD", "Full Self-Driving", "Premium Interior"],
+    "category": "EV"
+  },
+  {
+    "name": "Ford Edge",
+    "model": "Edge",
+    "brand": "Ford",
+    "color": "White",
+    "image": "https://d193ppza2qrruo.cloudfront.net/production/images/ford-edge-ST-Line_White_Platinum_047.png",
+    "year": 2022,
+    "price": 39999,
+    "features": ["AWD", "Ford Co-Pilot360", "Dual-Zone Climate Control"],
+    "category": "Fuel"
+  },
+  {
+    "name": "Toyota Avalon Hybrid",
+    "model": "Avalon Hybrid",
+    "brand": "Toyota",
+    "color": "Black",
+    "image": "https://media.ed.edmunds-media.com/toyota/avalon-hybrid/2019/oem/2019_toyota_avalon-hybrid_sedan_limited_fq_oem_1_1600.jpg",
+    "year": 2022,
+    "price": 37999,
+    "features": ["Premium JBL Audio", "Wireless Charging", "Safety Sense 2.5+"],
+    "category": "Hybrid"
   }
 ]

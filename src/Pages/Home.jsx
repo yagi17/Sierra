@@ -98,32 +98,26 @@ const Home = () => {
     <>
       <Nav onSearch={handleSearch} searchInputRef={searchInputRef} />
       <div className="flex space-x-10 mx-auto my-10 max-w-screen-xl">
-        <div className="w-52 h-fit p-3 text-sm">
+        {/* Filter section */}
+        <div className="w-52 min-h-screen sticky">
           <h2 className="font-bold mb-4">Filter</h2>
-          <div className="mb-4">
-            <h3 className="text-red-600">Brand Name</h3>
-            <div className="flex flex-col space-y-2">
-              {brands.map((brand, index) => (
-                <label key={index} className="label cursor-pointer">
-                  <span className="label-text">{brand}</span>
-                  <input
-                    type="radio"
-                    name="brand"
-                    className="size-4"
-                    value={brand}
-                    checked={selectedBrand === brand}
-                    onChange={(e) => setSelectedBrand(e.target.value)}
-                  />
-                </label>
-              ))}
-            </div>
-          </div>
 
           {/* select category */}
 
           <div className="mb-4">
-            <h3 className="text-red-600">Category Name</h3>
-            <div className="flex flex-col space-y-2">
+            <h3 className="font-bold text-red-600">Category Name</h3>
+            <div className="flex flex-col">
+            <label className="label cursor-pointer">
+                <span className="label-text">All Categories</span>
+                <input
+                  type="radio"
+                  name="category"
+                  className="radio size-4"
+                  value=""
+                  checked={selectedCategory === ""}
+                  onChange={(e) => setSelectedCategory(e.target.value)}
+                />
+              </label>
               {categories.map((category, index) => (
                 <label key={index} className="label cursor-pointer">
                   <span className="label-text">{category}</span>
@@ -138,6 +132,38 @@ const Home = () => {
                 </label>
               ))}
             </div>
+          </div>
+
+          {/* Select Brand name */}
+          <div className="mb-4">
+            <h3 className="font-bold text-red-600">Brand Name</h3>
+              <div className="flex flex-col">
+              <label className="label cursor-pointer">
+                <span className="label-text">All Brand</span>
+                
+                <input
+                  type="radio"
+                  name="brand"
+                  className="radio size-4"
+                  value=""
+                  checked={selectedBrand === ""}
+                  onChange={(e) => setSelectedBrand(e.target.value)}
+                />
+              </label>
+                {brands.map((brand, index) => (
+                  <label key={index} className="label cursor-pointer">
+                    <span className="label-text">{brand}</span>
+                    <input
+                      type="radio"
+                      name="brand"
+                      className="radio size-4"
+                      value={brand}
+                      checked={selectedBrand === brand}
+                      onChange={(e) => setSelectedBrand(e.target.value)}
+                    />
+                  </label>
+                ))}
+              </div>
           </div>
 
           {/* Price Range */}
