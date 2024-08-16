@@ -343,5 +343,148 @@
     "price": 37999,
     "features": ["Premium JBL Audio", "Wireless Charging", "Safety Sense 2.5+"],
     "category": "Hybrid"
+  },
+  {
+    "name": "Tesla Model Y Performance",
+    "model": "Model Y Performance",
+    "brand": "Tesla",
+    "color": "Blue",
+    "image": "https://cdn.whichcar.com.au/assets/w_4096/804a1ad1/2023-tesla-model-y-suv-coty-230131-njacobs-whls-coty-7a.png",
+    "year": 2023,
+    "price": 79999,
+    "features": ["Performance Upgrade", "Full Self-Driving", "Panoramic Roof"],
+    "category": "EV"
+  },
+  {
+    "name": "Ford Escape",
+    "model": "Escape",
+    "brand": "Ford",
+    "color": "Red",
+    "image": "https://www.motortrend.com/uploads/2023/10/2024-Ford-Escape-ST-Line-front-three-quarters-1.jpg?w=768&width=768&q=75&format=webp",
+    "year": 2022,
+    "price": 32999,
+    "features": ["Ford Co-Pilot360", "Hands-Free Liftgate", "SYNC 3"],
+    "category": "Fuel"
+  },
+  {
+    "name": "Toyota Venza Hybrid",
+    "model": "Venza Hybrid",
+    "brand": "Toyota",
+    "color": "Silver",
+    "image": "https://www.motortrend.com/uploads/2023/09/2024-Toyota-Venza-front-view-46.jpg?w=768&width=768&q=75&format=webp",
+    "year": 2023,
+    "price": 40999,
+    "features": ["All-Wheel Drive", "Star Gaze Panoramic Roof", "Wireless Charging"],
+    "category": "Hybrid"
+  },
+  {
+    "name": "BMW X3",
+    "model": "X3",
+    "brand": "BMW",
+    "color": "Black",
+    "image": "https://www.carscoops.com/wp-content/uploads/2021/11/BMW-X3-X4-M-Sport-Edition-11a.jpg",
+    "year": 2023,
+    "price": 58999,
+    "features": ["M Sport Package", "Panoramic Moonroof", "Live Cockpit Professional"],
+    "category": "Fuel"
+  },
+  {
+    "name": "Honda HR-V",
+    "model": "HR-V",
+    "brand": "Honda",
+    "color": "Green",
+    "image": "https://cdn.jdpower.com/JDP_2023%20Honda%20HR-V%20EX-L%20Nordic%20Green%20Pearl%20Front%20Quarter%20View.jpg",
+    "year": 2022,
+    "price": 24999,
+    "features": ["Magic Seat", "Honda Sensing", "Apple CarPlay"],
+    "category": "Fuel"
+  },
+  {
+    "name": "Nissan Murano",
+    "model": "Murano",
+    "brand": "Nissan",
+    "color": "Orange",
+    "image": "https://www.motortrend.com/uploads/sites/5/2015/08/2015-Nissan-Murano-SL-AWD-front-three-quarter-03.jpg",
+    "year": 2022,
+    "price": 39999,
+    "features": ["Intelligent AWD", "NissanConnect", "Panoramic Moonroof"],
+    "category": "Fuel"
+  },
+  {
+    "name": "Tesla Model X Plaid",
+    "model": "Model X Plaid",
+    "brand": "Tesla",
+    "color": "Black",
+    "image": "https://www.tesla.com/sites/default/files/images/model-x-five-star-rating-hero.jpg",
+    "year": 2023,
+    "price": 119999,
+    "features": ["Tri-Motor AWD", "Full Self-Driving", "Falcon Wing Doors"],
+    "category": "EV"
+  },
+  {
+    "name": "Ford Maverick",
+    "model": "Maverick",
+    "brand": "Ford",
+    "color": "Yellow",
+    "image": "https://i.gaw.to/content/photos/51/29/512931-ford-maverick-2022-la-camionnette-compacte-reinventee.jpeg",
+    "year": 2023,
+    "price": 24999,
+    "features": ["Hybrid Powertrain", "FordPass Connect", "FlexBed System"],
+    "category": "Hybrid"
+  },
+  {
+    "name": "Toyota Sienna Hybrid",
+    "model": "Sienna Hybrid",
+    "brand": "Toyota",
+    "color": "Blue",
+    "image": "https://www.motortrend.com/uploads/sites/5/2020/10/2021-Toyota-Sienna-Platinum-11.jpg?w=768&width=768&q=75&format=webp",
+    "year": 2023,
+    "price": 43999,
+    "features": ["All-Wheel Drive", "Rear Entertainment System", "Hands-Free Liftgate"],
+    "category": "Hybrid"
+  },
+  {
+    "name": "BMW X6",
+    "model": "X6",
+    "brand": "BMW",
+    "color": "Red",
+    "image": "https://w0.peakpx.com/wallpaper/647/637/HD-wallpaper-2015-bmw-x6-m50d-flamenco-red-front-car.jpg",
+    "year": 2023,
+    "price": 79999,
+    "features": ["M Sport Package", "Adaptive LED Headlights", "Harman Kardon Sound System"],
+    "category": "Fuel"
+  },
+  {
+    "name": "Honda Passport",
+    "model": "Passport",
+    "brand": "Honda",
+    "color": "Silver",
+    "image": "https://lh4.googleusercontent.com/ZrJfIEQ8Z5X_iJhGX3I4SWhR-mqDTv6hzSTDUPhtoupF88WyFGnCWK31FyaWbo6pAkN8D9peB5n3gB1sahO3U_qQOwnFSyMF-_kj49kG1QC3MGjLHeVPGORipTVjSs-OLvOyZ2lTRF471T8ZBQ",
+    "year": 2022,
+    "price": 36999,
+    "features": ["All-Wheel Drive", "Navigation System", "Honda Sensing"],
+    "category": "Fuel"
+  },
+  {
+    "name": "Nissan Pathfinder",
+    "model": "Pathfinder",
+    "brand": "Nissan",
+    "color": "Gray",
+    "image": "https://www.nissanusa.com/content/dam/Nissan/us/vehicles/pathfinder/2024/gallery/exterior/desktop/2024-nissan-pathfinder-front-view-driving-down-city-boulevard.jpg",
+    "year": 2022,
+    "price": 41999,
+    "features": ["Intelligent 4x4", "ProPilot Assist", "Tri-Zone Climate Control"],
+    "category": "Fuel"
+  },
+  {
+    "name": "Tesla Roadster",
+    "model": "Roadster",
+    "brand": "Tesla",
+    "color": "Red",
+    "image": "https://d2q97jj8nilsnk.cloudfront.net/images/DSC_7468.jpg",
+    "year": 2024,
+    "price": 200000,
+    "features": ["All-Wheel Drive", "Removable Roof", "Premium Interior"],
+    "category": "EV"
   }
 ]

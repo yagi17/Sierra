@@ -1,53 +1,137 @@
+import { Link, useNavigate } from "react-router-dom";
+import { useForm } from "react-hook-form";
+import useAuth from "./useAuth";
+import Swal from "sweetalert2";
+
 const Login = () => {
+  const { login, googleLogIn } = useAuth();
+  const navigate = useNavigate();
+
+  const handleGoogleSignIn = () => {
+    googleLogIn().then(() => {
+      navigate("/");
+    });
+  };
+
+  const {
+    register,
+    handleSubmit,
+    watch,
+    reset,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = (data) => {
+    login(data.email, data.password)
+      .then(() => {
+        // console.log(res.data);
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: ` Glad To See You Again`,
+          showConfirmButton: false,
+          timer: 2000,
+        });
+        // console.log(res);
+        navigate("/");
+      })
+      .catch((error) => {
+        // console.log(error);
+        if (error.message === "Firebase: Error (auth/invalid-credential).") {
+          const Toast = Swal.mixin({
+            toast: true,
+            position: "top-end",
+            showConfirmButton: false,
+            timer: 2000,
+            timerProgressBar: true,
+          });
+          Toast.fire({
+            icon: "error",
+            title: "Invalid Email / Password",
+          });
+        }
+        if (
+          error.message ===
+          "Firebase: Access to this account has been temporarily disabled due to many failed login attempts. You can immediately restore it by resetting your password or you can try again later. (auth/too-many-requests)."
+        ) {
+          const Toast = Swal.mixin({
+            toast: true,
+            position: "top-end",
+            showConfirmButton: false,
+            timer: 2000,
+            timerProgressBar: true,
+          });
+          Toast.fire({
+            icon: "error",
+            title: "Too many requests, try again letter",
+          });
+        }
+        reset();
+      });
+  };
+
   return (
     <>
       <section className=" min-h-screen flex box-border justify-center items-center">
         <div className="bg-gray-300 rounded-2xl flex max-w-3xl p-5 items-center">
           <div className="md:w-1/2 px-8">
-            <h2 className="font-bold text-3xl  text-red-600">Login</h2>
-            <p className="text-sm mt-4 text-red-600">
+            <h2 className="font-bold text-3xl text-center text-red-600">
+              Login
+            </h2>
+            {/* <p className="text-sm mt-4">
               If you already a member, easily log in now.
-            </p>
+            </p> */}
 
-            <form action="" className="flex flex-col gap-4">
-              <input
-                className="p-2 mt-8 rounded-xl outline-none border"
-                type="email"
-                name="email"
-                placeholder="Email"
-              />
-              <div className="relative">
+            <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col">
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Email</span>
+                </label>
                 <input
-                  className="p-2 rounded-xl border outline-none w-full"
-                  type="password"
-                  name="password"
-                  id="password"
-                  placeholder="Password"
+                  type="email"
+                  {...register("email", { required: true })}
+                  name="email"
+                  placeholder="Email"
+                  className="input input-bordered"
                 />
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  fill="gray"
-                  id="togglePassword"
-                  className="bi bi-eye absolute top-1/2 right-3 -translate-y-1/2 cursor-pointer z-20 opacity-100"
-                  viewBox="0 0 16 16"
-                >
-                  <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z"></path>
-                  <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"></path>
-                </svg>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  fill="currentColor"
-                  className="bi bi-eye-slash-fill absolute top-1/2 right-3 -z-1 -translate-y-1/2 cursor-pointer hidden"
-                  id="mama"
-                  viewBox="0 0 16 16"
-                >
-                  <path d="m10.79 12.912-1.614-1.615a3.5 3.5 0 0 1-4.474-4.474l-2.06-2.06C.938 6.278 0 8 0 8s3 5.5 8 5.5a7.029 7.029 0 0 0 2.79-.588zM5.21 3.088A7.028 7.028 0 0 1 8 2.5c5 0 8 5.5 8 5.5s-.939 1.721-2.641 3.238l-2.062-2.062a3.5 3.5 0 0 0-4.474-4.474L5.21 3.089z"></path>
-                  <path d="M5.525 7.646a2.5 2.5 0 0 0 2.829 2.829l-2.83-2.829zm4.95.708-2.829-2.83a2.5 2.5 0 0 1 2.829 2.829zm3.171 6-12-12 .708-.708 12 12-.708.708z"></path>
-                </svg>
+                {errors.email && (
+                  <span className="text-red-500 mt-1 text-xs">
+                    Email is required
+                  </span>
+                )}
+              </div>
+
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Password</span>
+                </label>
+                <input
+                  type="password"
+                  {...register("password", {
+                    required: true,
+                    minLength: 6,
+                    pattern: /^(?=.*[a-z])(?=.*[A-Z]).+$/,
+                  })}
+                  name="password"
+                  placeholder="Password"
+                  className="input input-bordered"
+                />
+                {errors.password?.type === "minLength" && (
+                  <span className="text-red-500 mt-1 text-xs">
+                    Password must be 6 character
+                  </span>
+                )}
+                {errors.password?.type === "pattern" && (
+                  <span className="text-red-500 mt-1 text-xs">
+                    Password must contain 1 uppercase and 1 lowercase character
+                  </span>
+                )}
+
+                <label className="label link">
+                  <a href="#" className="label-text-alt link link-hover">
+                    Forgot password?
+                  </a>
+                </label>
               </div>
               <button
                 className="btn bg-red-600 hover:bg-red-600 text-white py-2 rounded-xl duration-300 font-medium"
@@ -61,7 +145,12 @@ const Login = () => {
               <p className="text-center text-black text-sm">OR</p>
               <hr className="border-gray-300" />
             </div>
-            <button className="bg-white border py-2 w-full rounded-xl mt-5 flex justify-center items-center text-sm hover:scale-105 duration-300 hover:bg-[#60a8bc4f] font-medium">
+
+            {/* Google Login */}
+            <button
+              onClick={handleGoogleSignIn}
+              className="btn bg-white py-2 w-full rounded-xl mt-5 flex justify-center items-center text-sm duration-300 hover:bg-[#60a8bc4f] font-medium"
+            >
               <svg
                 className="mr-3"
                 xmlns="http://www.w3.org/2000/svg"
@@ -87,15 +176,15 @@ const Login = () => {
               </svg>
               Login with Google
             </button>
-            <div className="mt-10 text-sm border-b border-gray-500 py-5 playfair tooltip">
-              Forget password?
-            </div>
 
             <div className="mt-4 text-sm flex justify-between items-center container-mr">
-              <p className="mr-3 md:mr-0 ">If you don't have an account..</p>
-              <button className="btn register text-white bg-red-600 hover:bg-red-600  rounded-xl py-2 px-5 font-semibold duration-300">
-                Register
-              </button>
+              <p className="mr-3 md:mr-0 text-xs">
+                If you don't have an account..{" "}
+                <Link to={"/register"}>
+                  <span className="link text-blue-700 font-bold">Register</span>
+                </Link>{" "}
+                Now
+              </p>
             </div>
           </div>
           <div className="md:block hidden w-1/2">

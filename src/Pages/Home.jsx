@@ -1,12 +1,10 @@
 import { useEffect, useState, useRef } from "react";
-import useAxios from "../Hooks/useAxios";
 import axios from "axios";
 import { GoDotFill } from "react-icons/go";
 import { Link } from "react-router-dom";
 import Nav from "./Nav";
 
 const Home = () => {
-  const axiosInstance = useAxios();
   const searchInputRef = useRef(null); // Add a ref for the search input
 
   const [products, setProducts] = useState([]);
@@ -14,7 +12,7 @@ const Home = () => {
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [selectedBrand, setSelectedBrand] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("");
-  const [priceRange, setPriceRange] = useState([0, 100000]);
+  const [priceRange, setPriceRange] = useState([0, 210000]);
   const [brands, setBrands] = useState([]);
 
   const [categories, setCategories] = useState([]);
@@ -39,7 +37,7 @@ const Home = () => {
       .catch((error) => {
         console.error("Error fetching data:", error);
       });
-  }, [axiosInstance]);
+  }, []);
 
   const handleSearch = (query) => {
     setSearchQuery(query);
@@ -49,7 +47,7 @@ const Home = () => {
     setSearchQuery("");
     setSelectedBrand("");
     setSelectedCategory("");
-    setPriceRange([0, 100000]);
+    setPriceRange([0, 210000]);
     setSortOrder("asc");
 
     if (searchInputRef.current) {
@@ -100,14 +98,27 @@ const Home = () => {
       <div className="flex space-x-10 mx-auto my-10 max-w-screen-xl">
         {/* Filter section */}
         <div className="w-52 min-h-screen sticky">
-          <h2 className="font-bold mb-4">Filter</h2>
+          {/* sort by price */}
+          <div className="flex items-center space-x-3 font-bold">
+            <h2 className="text-sm text-red-600">Price:</h2>
+            <div className="p-1 rounded-lg ">
+              <select
+                className="w-fit rounded outline-none font-bold text-sm focus:ring-0"
+                value={sortOrder}
+                onChange={(e) => setSortOrder(e.target.value)}
+              >
+                <option value="asc">Low to High</option>
+                <option value="desc">High to Low</option>
+              </select>
+            </div>
+          </div>
 
           {/* select category */}
 
-          <div className="mb-4">
+          <div className="my-1">
             <h3 className="font-bold text-red-600">Category Name</h3>
             <div className="flex flex-col">
-            <label className="label cursor-pointer">
+              <label className="label cursor-pointer">
                 <span className="label-text">All Categories</span>
                 <input
                   type="radio"
@@ -135,12 +146,12 @@ const Home = () => {
           </div>
 
           {/* Select Brand name */}
-          <div className="mb-4">
+          <div className="my-1">
             <h3 className="font-bold text-red-600">Brand Name</h3>
-              <div className="flex flex-col">
+            <div className="flex flex-col">
               <label className="label cursor-pointer">
                 <span className="label-text">All Brand</span>
-                
+
                 <input
                   type="radio"
                   name="brand"
@@ -150,20 +161,20 @@ const Home = () => {
                   onChange={(e) => setSelectedBrand(e.target.value)}
                 />
               </label>
-                {brands.map((brand, index) => (
-                  <label key={index} className="label cursor-pointer">
-                    <span className="label-text">{brand}</span>
-                    <input
-                      type="radio"
-                      name="brand"
-                      className="radio size-4"
-                      value={brand}
-                      checked={selectedBrand === brand}
-                      onChange={(e) => setSelectedBrand(e.target.value)}
-                    />
-                  </label>
-                ))}
-              </div>
+              {brands.map((brand, index) => (
+                <label key={index} className="label cursor-pointer">
+                  <span className="label-text">{brand}</span>
+                  <input
+                    type="radio"
+                    name="brand"
+                    className="radio size-4"
+                    value={brand}
+                    checked={selectedBrand === brand}
+                    onChange={(e) => setSelectedBrand(e.target.value)}
+                  />
+                </label>
+              ))}
+            </div>
           </div>
 
           {/* Price Range */}
@@ -175,8 +186,8 @@ const Home = () => {
             <div className="flex items-center space-x-4 mt-2">
               <input
                 type="range"
-                min="0"
-                max="100000"
+                min="19999"
+                max="210000"
                 value={priceRange[1]}
                 onChange={(e) =>
                   setPriceRange([priceRange[0], Number(e.target.value)])
@@ -184,19 +195,6 @@ const Home = () => {
                 className="w-full"
               />
             </div>
-          </div>
-
-          {/* sort by price */}
-          <div className="">
-            <h3 className="text-white">Sort by Price</h3>
-            <select
-              className="w-full py-2 rounded outline-none focus:ring-0"
-              value={sortOrder}
-              onChange={(e) => setSortOrder(e.target.value)}
-            >
-              <option value="asc">Price: Low to High</option>
-              <option value="desc">Price: High to Low</option>
-            </select>
           </div>
 
           <div className="mt-4">

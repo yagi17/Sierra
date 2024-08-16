@@ -6,6 +6,8 @@ import "./index.css";
 import AuthProvider from "./Authentication/AuthProvider.jsx";
 import Login from "./Authentication/Login.jsx";
 import Home from "./Pages/Home.jsx";
+import SignUp from "./Authentication/SignUp.jsx";
+import PrivateRoute from "./Authentication/PrivateRoute.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -13,11 +15,15 @@ const router = createBrowserRouter([
     children:[
       {
         path: "/",
-        element: <Home/>
+        element: <PrivateRoute><Home/></PrivateRoute>
       },
       {
         path: "/login",
         element: <Login/>
+      },
+      {
+        path: "/register",
+        element: <SignUp/>
       }
     ]
   },

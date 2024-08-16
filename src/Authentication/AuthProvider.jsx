@@ -53,7 +53,15 @@ const AuthProvider = ({ children }) => {
     return signInWithPopup(auth, google);
   };
 
-
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+      setLoading(false);
+    });
+    return () => {
+      return unsubscribe;
+    }; // unsubscribe on unmount
+  }, []);
 
   const values = {
     user,
