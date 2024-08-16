@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import Nav from "./Nav";
 
 const Home = () => {
-  const searchInputRef = useRef(null); // Add a ref for the search input
+  const searchInputRef = useRef(null); 
 
   const [products, setProducts] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
@@ -21,7 +21,7 @@ const Home = () => {
 
   useEffect(() => {
     axios
-      .get("data.json")
+      .get(`${import.meta.env.VITE_apiLink}/cars`)
       .then((response) => {
         const data = response.data;
         setProducts(data);
@@ -252,7 +252,7 @@ const Home = () => {
             ))
           ) : (
             <div className="col-span-3">
-              <h2 className="text-xl font-semibold text-red-600">
+              <h2 className="text-xl text-center font-semibold text-red-600">
                 No car found
               </h2>
             </div>
