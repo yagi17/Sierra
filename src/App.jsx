@@ -1,13 +1,11 @@
-import React from "react";
-import Nav from "./Pages/Nav";
-import Home from "./Pages/Home";
 import Footer from "./Pages/Footer";
+import { Outlet } from "react-router-dom";
 
 const App = () => {
   return (
     <div>
       {/* <Nav /> */}
-      <Home />
+      <Outlet></Outlet>
       <Footer />
     </div>
   );

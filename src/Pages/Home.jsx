@@ -18,7 +18,7 @@ const Home = () => {
   const [brands, setBrands] = useState([]);
 
   const [categories, setCategories] = useState([]);
-  console.log(categories);
+  // console.log(categories);
   const [sortOrder, setSortOrder] = useState("asc");
 
   useEffect(() => {
