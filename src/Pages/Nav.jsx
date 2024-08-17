@@ -4,8 +4,7 @@ import { IoLogOutOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
 
 const Nav = ({ onSearch }) => {
-  const { user, logout } = useAuth();
-  // console.log(user)
+  const {logout } = useAuth();
 
   const handleLogout = () => {
     logout().then(() => {});
@@ -28,13 +27,13 @@ const Nav = ({ onSearch }) => {
         <input
           type="text"
           // ref={searchInputRef}
-          placeholder="Search by name, brand, model"
+          placeholder="Search by name, brand or model"
           value={searchQuery}
           onChange={handleSearchChange}
-          className="border border-red-600 w-96 rounded-md py-1 px-2"
+          className="border border-red-600 md:w-96 text-sm rounded-md py-1 px-2"
         />
         <svg
-          className="absolute right-2 h-6 w-6 text-gray-400 hover:text-gray-500"
+          className="absolute right-2 md:flex hidden h-6 w-6 text-gray-400 hover:text-gray-500"
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"

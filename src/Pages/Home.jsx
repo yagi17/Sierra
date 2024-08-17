@@ -106,10 +106,11 @@ const Home = () => {
   return (
     <>
       <Nav onSearch={handleSearch} searchInputRef={searchInputRef} />
-      <div className="flex space-x-10 mx-auto my-10 max-w-screen-xl">
+      <div className="md:flex md:space-x-10 mx-auto my-10 lg:max-w-screen-xl md:w-11/12 w-10/12">
         {/* Filter section */}
-        <div className="w-52 min-h-screen sticky">
+        <div className="md:w-52 min-h-screen sticky">
           {/* sort by price */}
+
           <div className="flex items-center space-x-3 font-bold">
             <h2 className="text-sm text-red-600">Price:</h2>
             <div className="p-1 rounded-lg ">
@@ -219,13 +220,13 @@ const Home = () => {
         </div>
 
         {/* item section */}
-        <div className="w-full">
+        <div className="w-full mx-auto md:mt-0 mt-6">
           {paginatedProducts.length > 0 ? (
             <>
-              <div className="grid md:grid-cols-3 gap-4 w-full">
+              <div className="md:grid md:grid-cols-2 gap-4 md:space-y-0 space-y-4 w-full">
                 {paginatedProducts.map((product, index) => (
-                  <div key={index}>
-                    <article className="max-w-sm w-full bg-white rounded-lg shadow-lg overflow-hidden">
+                  // <div >
+                    <article key={index} className="max-w-sm w-full bg-white rounded-lg shadow-lg overflow-hidden">
                       <div>
                         <img
                           className="object-cover h-64 w-full"
@@ -264,7 +265,7 @@ const Home = () => {
                         </Link>
                       </div>
                     </article>
-                  </div>
+                  // </div>
                 ))}
               </div>
 
@@ -334,6 +335,7 @@ const Home = () => {
               </div>
             </>
           ) : (
+            // no cars
             <>
               <div className="h-1/2 flex justify-center items-center w-full">
                 <h2 className="text-2xl text-center font-semibold text-red-600">
