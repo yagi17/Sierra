@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import Nav from "./Nav";
 
 const Home = () => {
-  const searchInputRef = useRef(null); 
+  const searchInputRef = useRef(null);
 
   const [products, setProducts] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
@@ -14,10 +14,10 @@ const Home = () => {
   const [selectedCategory, setSelectedCategory] = useState("");
   const [priceRange, setPriceRange] = useState([0, 210000]);
   const [brands, setBrands] = useState([]);
-
   const [categories, setCategories] = useState([]);
-  // console.log(categories);
   const [sortOrder, setSortOrder] = useState("asc");
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 9;
 
   useEffect(() => {
     axios
@@ -83,6 +83,9 @@ const Home = () => {
     });
 
     setFilteredProducts(sorted);
+
+    // Reset the current page to 1 when filters change
+    setCurrentPage(1);
   }, [
     products,
     searchQuery,
@@ -91,6 +94,14 @@ const Home = () => {
     priceRange,
     sortOrder,
   ]);
+
+  // Calculate the paginated products directly in the render
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const paginatedProducts = filteredProducts.slice(
+    indexOfFirstItem,
+    indexOfLastItem
+  );
 
   return (
     <>
@@ -207,9 +218,11 @@ const Home = () => {
           </div>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-4 w-full">
-          {filteredProducts.length > 0 ? (
-            filteredProducts.map((product, index) => (
+        {/* item section */}
+        <div>
+          {paginatedProducts.length > 0 ? <>{}</> : <></>}
+          <div className="grid md:grid-cols-3 gap-4 w-full">
+            {paginatedProducts.map((product, index) => (
               <div key={index}>
                 <article className="max-w-sm w-full bg-white rounded-lg shadow-lg overflow-hidden">
                   <div>
@@ -249,14 +262,72 @@ const Home = () => {
                   </div>
                 </article>
               </div>
-            ))
-          ) : (
-            <div className="col-span-3">
-              <h2 className="text-xl text-center font-semibold text-red-600">
-                No car found
-              </h2>
+            ))}
+          </div>
+
+          {/* Pagination */}
+          <div className="mt-8 flex justify-center border w-full items-center">
+            <div className="inline-flex border-2 border-gray-500 rounded-lg justify-center items-center p-1 bg-white space-x-2">
+              <button
+                className={`p-1 rounded border text-black bg-white hover:text-white hover:bg-blue-600 hover:border-blue-600 ${
+                  currentPage === 1 ? "opacity-50 cursor-not-allowed" : ""
+                }`}
+                onClick={() =>
+                  setCurrentPage((prevPage) => Math.max(prevPage - 1, 1))
+                }
+                disabled={currentPage === 1}
+              >
+                <svg
+                  className="w-5 h-5"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"
+                  />
+                </svg>
+              </button>
+              <p className="text-red-600">
+                Page {currentPage} of{" "}
+                {Math.ceil(filteredProducts.length / itemsPerPage)}
+              </p>
+
+              <button
+                className={`p-1 rounded border text-black bg-white hover:text-white hover:bg-blue-600 hover:border-blue-600 ${
+                  currentPage ===
+                  Math.ceil(filteredProducts.length / itemsPerPage)
+                    ? "opacity-50 cursor-not-allowed"
+                    : ""
+                }`}
+                onClick={() =>
+                  setCurrentPage((prevPage) =>
+                    Math.min(
+                      prevPage + 1,
+                      Math.ceil(filteredProducts.length / itemsPerPage)
+                    )
+                  )
+                }
+                disabled={
+                  currentPage ===
+                  Math.ceil(filteredProducts.length / itemsPerPage)
+                }
+              >
+                <svg
+                  className="w-5 h-5"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
+                  />
+                </svg>
+              </button>
             </div>
-          )}
+          </div>
         </div>
       </div>
     </>
